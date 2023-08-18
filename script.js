@@ -19,7 +19,7 @@ function eraserMode() {
 
 }
 
-function clear() {
+function clearBox() {
 
 }
 
