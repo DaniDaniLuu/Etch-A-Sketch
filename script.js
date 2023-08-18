@@ -1,26 +1,29 @@
 function updateColor(event) {
-    if(colorMode){
+    event.stopPropagation();
+    if(colorClick){
+       const colorWheel = document.querySelector('#color-picker');
+       let colorValue = colorWheel.value;
+       console.log(colorValue);
+       this.style.backgroundColor = `${colorValue}`;
 
     }
-    else if (rainbowMode){
-
+    else if (rainbowClick){
+        let redRandom = Math.floor(Math.random() * 256);
+        let greenRandom = Math.floor(Math.random() * 256);
+        let blueRandom = Math.floor(Math.random() * 256);
+        this.style.backgroundColor = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
     }
-    else if (eraser){
-
+    else if (eraserClick){
+        this.style.backgroundColor = '#FFFFFF';
     }
     return;
 }
 
-function randomColor() {
-
-}
-
-function eraserMode() {
-
-}
-
 function clearBox() {
-
+    const clearInner = document.querySelectorAll('.inner');
+    clearInner.forEach(item => {
+        item.style.backgroundColor = '#FFFFFF';
+    })
 }
 
 // Function to change the slider bar size text 
@@ -31,7 +34,6 @@ function changeSizeText(gridSize) {
 
 function updateGridDimensions(gridSize) {
     let dimension = 500/gridSize;
-    console.log(dimension);
     const outerArray = document.querySelectorAll('.outer');
     const innerArray = document.querySelectorAll('.inner');
     outerArray.forEach((item) => {
@@ -45,6 +47,7 @@ function updateGridDimensions(gridSize) {
 
 // This function is meant to update the size of the grid to the appropriate Num x Num size. After updating the size calls changeSizeText.
 function updateGrid(event) {
+    addHover();
     let gridContainer = document.querySelector('.etchBox')
     let gridSize = event.currentTarget.value;
     gridContainer.innerHTML = '';
@@ -58,6 +61,7 @@ function updateGrid(event) {
                 outerGrid.appendChild(innerGrid);
             }
     }
+    addHover();
     updateGridDimensions(gridSize);
     changeSizeText(gridSize);
 }
@@ -76,16 +80,20 @@ function standardGrid(){
                 outerGrid.appendChild(innerGrid);
             }
     }
+    addHover();
     updateGridDimensions(gridSize);
     changeSizeText(gridSize);
 }
 
+function addHover(){
+    const etchBoxInner = document.querySelectorAll('.inner');
+    etchBoxInner.forEach((item)=> {
+    item.addEventListener('mouseover', updateColor)
+    });
+}
+
 
 standardGrid();
-
-const etchBox = document.querySelector('.etchBox');
-etchBox.addEventListener('hover', updateColor)
-
 const slider = document.querySelector('.sizePicker');
 slider.addEventListener('input', updateGrid);
 
@@ -94,4 +102,26 @@ const rainbow = document.querySelector('.rainbow');
 const eraser = document.querySelector('.eraser');
 const clear = document.querySelector('.clear');
 
-color.addEventListener('click',)
+let colorClick = false;
+let rainbowClick = false;
+let eraserClick = false;
+
+color.addEventListener('click', () => {
+    colorClick = !colorClick;
+    rainbowClick = false;
+    eraserClick = false;
+})
+
+rainbow.addEventListener('click', () => {
+    colorClick = false;
+    rainbowClick = !rainbowClick;
+    eraserClick = false;
+})
+
+eraser.addEventListener('click', () => {
+    colorClick = false;
+    rainbowClick = false;
+    eraserClick = !eraserClick;
+})
+
+clear.addEventListener('click', clearBox);
