@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Roboto:ital,wght@0,300;0,400;0,700;1,400&family=Vollkorn:ital,wght@0,400;0,500;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="etchTitle">Etch-A-Sketch</h1>
+    </header>
+    <main>
+        <div class="etchBox">
+        </div> 
+        <div class="optionBox">
+            <div id="color-container">
+                <input type="color" id="color-picker">
+            </div>
+            <button class="color">Color Mode</button>
+            <button class="rainbow">Rainbow Mode</button>
+            <button class="eraser">Eraser</button>
+            <button class="clear">Clear</button>
+            <div id="sizeContainer">
+                <div id="gridSize">16x16</div>
+                <input class="sizePicker" type="range" min="16" max="100" step="1" value="16">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body{
+    background-color: #f5e5d3;
+    border-style: border-box;
+    font-family: 'Vollkorn';
+}
+
+header{
+    text-align: center;
+}
+
+button{
+    width: 150px;
+    height: 60px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: inherit;
+    border: 3px solid #0a0a0a;
+    border-radius: 5px;
+    background-color: inherit;
+}
+
+.etchTitle{
+    font-size: 4em;
+    color:#222222;
+    font-weight: 800;
+    font-style: italic;
+}
+
+main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:60px;
+}
+
+.optionBox{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.etchBox{
+    display:flex;
+    flex-direction: column;
+    border:5px solid rgb(27, 27, 27);
+    box-shadow: 5px 5px 10px rgb(33, 33, 34);
+    border-style: initial;
+    height:500px;
+    width:500px;
+    background-color: #ffffff;
+}
+
+#color-picker{
+    position:absolute;
+    right:-10px;
+    top:-10px;
+    height: 150px;
+    width: 150px;
+    border:none;
+}
+
+#color-container{
+    position: relative;
+    height: 120px;
+    width: 120px;
+    border: solid 2px #f5e5d3;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+input[type='range']{
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 10rem;
+}
+
+input[type='range']::-webkit-slider-runnable-track{
+    background:#222222;
+    border: solid 2px black;
+    height: 10px;
+    border-radius: 5px;
+}
+
+input[type='range']::-webkit-slider-thumb{
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    background-color: #000000;
+    margin-top: -9px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+}
+
+#sizeContainer{
+    display:flex;
+    flex-direction: column;
+    
+}
+
+#gridSize{
+    text-align: center;
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: bold;
+}
