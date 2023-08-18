@@ -110,18 +110,36 @@ color.addEventListener('click', () => {
     colorClick = !colorClick;
     rainbowClick = false;
     eraserClick = false;
+    color.classList.toggle('active');
+    rainbow.classList.remove('active');
+    eraser.classList.remove('active');
+    clear.classList.remove('active');
 })
 
 rainbow.addEventListener('click', () => {
     colorClick = false;
     rainbowClick = !rainbowClick;
     eraserClick = false;
+    rainbow.classList.toggle('active');
+    color.classList.remove('active');
+    eraser.classList.remove('active');
+    clear.classList.remove('active');
 })
 
 eraser.addEventListener('click', () => {
     colorClick = false;
     rainbowClick = false;
     eraserClick = !eraserClick;
+    eraser.classList.toggle('active');
+    color.classList.remove('active');
+    rainbow.classList.remove('active');
+    clear.classList.remove('active');
 })
 
-clear.addEventListener('click', clearBox);
+clear.addEventListener('click', () => {
+    clearBox();
+    clear.classList.toggle('active');
+    color.classList.remove('active');
+    rainbow.classList.remove('active');
+    eraser.classList.remove('active');
+})
